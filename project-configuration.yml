@@ -1,0 +1,31 @@
+header:
+    version: 1
+
+machine: stm32mp2
+target: core-image-weston
+
+repos:
+    poky:
+        url: "https://git.yoctoproject.org/git/poky"
+        branch: "scarthgap"
+        layers:
+            meta:
+            meta-poky:
+            meta-yocto-bsp:
+    meta-openembedded:
+        url: "https://github.com/openembedded/meta-openembedded"
+        branch: "scarthgap"
+        path: "meta-openembedded"
+        layers:
+            meta-oe:
+    meta-arm:
+        url: "https://github.com/STMicroelectronics/meta-st-stm32mp.git"
+        branch: "scarthgap"
+    meta-clang:
+        url: "https://github.com/kraj/meta-clang"
+        branch: "kirkstone"
+        path: "meta-clang"
+    meta-flutter:
+        url: "https://github.com/meta-flutter/meta-flutter"
+        branch: "kirkstone"
+        path: "meta-flutter"

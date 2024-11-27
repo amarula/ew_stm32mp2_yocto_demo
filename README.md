@@ -2,7 +2,18 @@
 
 kas project configuration used to build the BSP for the Embedded World 2025 demo showing a Flutter GUI communicating with a Zephyr board also from STM32.
 
-## Setup
+## Checkout
+
+```bash
+kas checkout project-configuration.yml
+```
+
+Or inside container
+```bash
+kas-container checkout project-configuration.yml
+```
+
+## Build
 
 ```bash
 kas build project-configuration.yml

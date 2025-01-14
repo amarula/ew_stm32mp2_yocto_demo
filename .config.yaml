@@ -1,0 +1,65 @@
+header:
+    version: 1
+
+machine: stm32mp2
+distro: openstlinux-weston
+target: st-image-weston
+
+repos:
+    bitbake:
+        url: "https://git.openembedded.org/bitbake"
+        branch: "2.10"
+        layers:
+            .: excluded
+
+    openembedded-core:
+        url: "https://git.openembedded.org/openembedded-core"
+        branch: "scarthgap"
+        layers:
+            meta:
+
+    meta-openembedded:
+        url: "https://github.com/openembedded/meta-openembedded"
+        branch: "scarthgap"
+        layers:
+            meta-gnome:
+            meta-multimedia:
+            meta-networking:
+            meta-oe:
+            meta-python:
+            meta-webserver:
+
+    meta-st-openstlinux:
+        url: "https://github.com/STMicroelectronics/meta-st-openstlinux"
+        branch: "scarthgap"
+
+    meta-st-stm32mp:
+        url: "https://github.com/STMicroelectronics/meta-st-stm32mp"
+        branch: "scarthgap"
+
+    meta-st-stm32mp-addons:
+        url: "https://github.com/STMicroelectronics/meta-st-stm32mp-addons"
+        branch: "scarthgap"
+
+    meta-st-scripts:
+        url: "https://github.com/STMicroelectronics/meta-st-scripts"
+        branch: "scarthgap"
+        layers:
+            .: excluded
+
+    meta-engicam-st:
+        url: "https://github.com/AndreaRicchi/meta-engicam-st"
+        branch: "scarthgap"
+
+    meta-clang:
+        url: "https://github.com/kraj/meta-clang"
+        branch: "scarthgap"
+
+    meta-flutter:
+        url: "https://github.com/meta-flutter/meta-flutter"
+        branch: "scarthgap"
+
+local_conf_header:
+    standard: |
+        BB_NUMBER_THREADS ?= "4"
+        PARALLEL_MAKE ?= "-j 2"

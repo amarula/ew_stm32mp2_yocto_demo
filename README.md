@@ -5,23 +5,23 @@ kas project configuration used to build the BSP for the Embedded World 2025 demo
 ## Checkout
 
 ```bash
-kas checkout project-configuration.yml
+kas checkout
 ```
 
 Or inside container
 ```bash
-kas-container checkout project-configuration.yml
+kas-container checkout
 ```
 
 ## Build
 
 ```bash
-kas build project-configuration.yml
+kas build
 ```
 
 Or inside container
 ```bash
-kas-container build project-configuration.yml
+kas-container build
 ```
 
 ## Flutter development

@@ -1,7 +1,7 @@
 header:
     version: 1
 
-machine: stm32mp2
+machine: stm32mp25-icore
 distro: openstlinux-weston
 target: st-image-weston
 

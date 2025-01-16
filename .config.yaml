@@ -48,7 +48,7 @@ repos:
             .: excluded
 
     meta-engicam-st:
-        url: "https://github.com/AndreaRicchi/meta-engicam-st"
+        url: "https://github.com/amarula/meta-engicam-st"
         branch: "scarthgap"
 
     meta-clang:

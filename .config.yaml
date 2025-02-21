@@ -12,15 +12,19 @@ repos:
         layers:
             .: excluded
 
+    meta-engicam-st:
+        url: "https://github.com/amarula/meta-engicam-st"
+        branch: "scarthgap"
+
     openembedded-core:
         url: "https://git.openembedded.org/openembedded-core"
-        branch: "scarthgap"
+        commit: 236ac1b43308df722a78d3aa20aef065dfae5b2b
         layers:
             meta:
 
     meta-openembedded:
         url: "https://github.com/openembedded/meta-openembedded"
-        branch: "scarthgap"
+        commit: 1235dd4ed4a57e67683c045ad76b6a0f9e896b45
         layers:
             meta-gnome:
             meta-multimedia:
@@ -31,25 +35,21 @@ repos:
 
     meta-st-openstlinux:
         url: "https://github.com/STMicroelectronics/meta-st-openstlinux"
-        branch: "scarthgap"
+        commit: a25d4806880cdc73471e3c1824a87901b5a4e44f
 
     meta-st-stm32mp:
         url: "https://github.com/STMicroelectronics/meta-st-stm32mp"
-        branch: "scarthgap"
+        commit: dd13b8318b78f956086efade81de9c72c0e97187
 
     meta-st-stm32mp-addons:
         url: "https://github.com/STMicroelectronics/meta-st-stm32mp-addons"
-        branch: "scarthgap"
+        commit: 97617f888513d89c4070f59bfdfa2a91e8175d5c
 
     meta-st-scripts:
         url: "https://github.com/STMicroelectronics/meta-st-scripts"
-        branch: "scarthgap"
+        commit: 27b8b0df3b2f3515d5e51de65f54eff00ddacb82
         layers:
             .: excluded
-
-    meta-engicam-st:
-        url: "https://github.com/amarula/meta-engicam-st"
-        branch: "scarthgap"
 
     meta-clang:
         url: "https://github.com/kraj/meta-clang"
@@ -58,8 +58,53 @@ repos:
     meta-flutter:
         url: "https://github.com/meta-flutter/meta-flutter"
         branch: "scarthgap"
+        layers:
+            .:
+            meta-flutter-apps:
+
+    meta-amarula-demo:
+        url: "ssh://git@github.com/amarula/meta-amarula-demo.git"
+        commit: 611f500415bd9f141b8b4bc6782c8b596f9b56ad
 
 local_conf_header:
     standard: |
         BB_NUMBER_THREADS ?= "4"
         PARALLEL_MAKE ?= "-j 2"
+        EULA_FILE_ST = "1"
+        ACCEPT_EULA_stm32mp25-icore = "1"
+        DISTRO = "openstlinux-weston"
+        # ST specific
+        GLIBC_GENERATE_LOCALES = "en_GB.UTF-8 en_US.UTF-8"
+        IMAGE_LINGUAS ?= "en-gb"
+        INHERIT += "devshell"
+        RM_OLD_IMAGE = "1"
+        #IMAGE_GEN_DEBUGFS = "1"
+        # force the usage of debian package
+        PACKAGE_CLASSES = "package_deb"
+        # To enable archiver for recipes that are configured
+        #ST_ARCHIVER_ENABLE = "1"
+        # Setup environment for builds binary reproducibility
+        REPRODUCIBLE_TIMESTAMP_ROOTFS = ""
+        # Setup eSDK
+        SDK_EXT_TYPE="minimal"
+        SDK_INCLUDE_TOOLCHAIN="1"
+        # Enable PR server to avoid version-going-backward issue
+        PRSERV_HOST = "localhost:0"
+        # for archiver
+        HOSTTOOLS += "xz truncate"
+        # =========================================================================
+        # Configure STM32MP default version to github
+        # =========================================================================
+        #STM32MP_SOURCE_SELECTION:pn-linux-stm32mp = "github"
+        #STM32MP_SOURCE_SELECTION:pn-optee-os-stm32mp = "github"
+        #STM32MP_SOURCE_SELECTION:pn-tf-a-stm32mp = "github"
+        #STM32MP_SOURCE_SELECTION:pn-u-boot-stm32mp = "github"
+        # Flutter
+        IMAGE_INSTALL:append = " \
+            flutter-engine \
+            flutter-engine \
+            flutter-wayland-client \
+            ew-2025-flutter-demo-can-lib \
+            ew-2025-flutter-demo \
+        "
+        TOOLCHAIN_HOST_TASK:append = " nativesdk-flutter-sdk"

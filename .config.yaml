@@ -63,7 +63,7 @@ repos:
             meta-flutter-apps:
 
     meta-amarula-demo:
-        url: "ssh://git@github.com/amarula/meta-amarula-demo.git"
+        url: "https://github.com/amarula/meta-amarula-demo.git"
         commit: 611f500415bd9f141b8b4bc6782c8b596f9b56ad
 
 local_conf_header:

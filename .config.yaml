@@ -70,19 +70,15 @@ local_conf_header:
     standard: |
         BB_NUMBER_THREADS ?= "4"
         PARALLEL_MAKE ?= "-j 2"
+        # ST specific
         EULA_FILE_ST = "1"
         ACCEPT_EULA_stm32mp25-icore = "1"
-        DISTRO = "openstlinux-weston"
-        # ST specific
         GLIBC_GENERATE_LOCALES = "en_GB.UTF-8 en_US.UTF-8"
         IMAGE_LINGUAS ?= "en-gb"
         INHERIT += "devshell"
         RM_OLD_IMAGE = "1"
-        #IMAGE_GEN_DEBUGFS = "1"
-        # force the usage of debian package
+        # Force the usage of debian package
         PACKAGE_CLASSES = "package_deb"
-        # To enable archiver for recipes that are configured
-        #ST_ARCHIVER_ENABLE = "1"
         # Setup environment for builds binary reproducibility
         REPRODUCIBLE_TIMESTAMP_ROOTFS = ""
         # Setup eSDK
@@ -92,13 +88,6 @@ local_conf_header:
         PRSERV_HOST = "localhost:0"
         # for archiver
         HOSTTOOLS += "xz truncate"
-        # =========================================================================
-        # Configure STM32MP default version to github
-        # =========================================================================
-        #STM32MP_SOURCE_SELECTION:pn-linux-stm32mp = "github"
-        #STM32MP_SOURCE_SELECTION:pn-optee-os-stm32mp = "github"
-        #STM32MP_SOURCE_SELECTION:pn-tf-a-stm32mp = "github"
-        #STM32MP_SOURCE_SELECTION:pn-u-boot-stm32mp = "github"
         # Flutter
         IMAGE_INSTALL:append = " \
             flutter-engine \

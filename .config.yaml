@@ -95,5 +95,7 @@ local_conf_header:
             flutter-wayland-client \
             ew-2025-flutter-demo-can-lib \
             ew-2025-flutter-demo \
+            connman \
+            connman-client \
         "
         TOOLCHAIN_HOST_TASK:append = " nativesdk-flutter-sdk"

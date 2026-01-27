@@ -64,7 +64,8 @@ repos:
 
     meta-amarula-demo:
         url: "https://github.com/amarula/meta-amarula-demo.git"
-        commit: 611f500415bd9f141b8b4bc6782c8b596f9b56ad
+        branch: "v2025"
+        commit: 1b9c629b38be3347651035540757c48001692371
 
 local_conf_header:
     standard: |
